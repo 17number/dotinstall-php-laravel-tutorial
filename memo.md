@@ -85,8 +85,15 @@
     - `@foreach` ~ `@endforeach`
     - `@forelse` ~ `@empty` ~ `@endforelse`
       - 中身が空だったときの処理を `@empty` 下に書ける
+  - リンクの生成
+    - `url("/posts", $post->id)` -> `/posts/{{ $posts->id }}` となる
+    - `action("PostsController@show", $post-id)` でも同じ
 - サーバの起動
   - `php artisan serve --host <ip addr> --port <port>` でサーバの起動
 - `dd()`: dump and die
   - データをダンプして終了、データが取れているかの確認に使う　
 - `Model::latest()`: `Model::orderBy("created_at", "desc")` と同じ
+- Implicit Binding
+  - Controller で引数を `Post $post` と定義することでよきに計らってくれる(っぽい)
+    - デフォルトは `id` だが、モデルにメソッドを追加するとカスタマイズできる
+      - [Laravelでwiki的なものをつくってみる\(後編\) \- Qiita](https://qiita.com/ohida/items/f5280ccbb10f9b43f92c#implicit-binding)
