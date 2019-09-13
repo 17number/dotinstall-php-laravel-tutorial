@@ -58,6 +58,8 @@
 - ルーティング
   - `routes/web.php` で設定
   - `Route::get("/", "XxxxController@xxxx_method")` で URL と対応アクションを指定
+    - パラメータを指定する場合は `Route::get("/{hoge}", ...)` とする
+      - コントローラでは関数定義で仮引数を追加すれば OK
 - コントローラ
   - `php artisan make:controller XxxxController` でコントローラの作成
     - `app/Http/Controllers/XxxxController.php`
@@ -65,12 +67,20 @@
   - ビューにデータを渡す
     - `view("posts.index", ["key" => "value"])` or
     - `view("posts.index")->with("key", "value")`
+  - `findOrFail` でデータがない場合に例外を返す
+    - `find` だとデータがない場合は `null` が返却される
+    - `findOrFail` だと `Illuminate/Database/Eloquent/ModelNotFoundException with message 'No query results for model [App/Post] 1'` となる
 - ビュー
   - `resources/views/<resouce>/<action>.blade.php` に作成(通例?)
   - コントローラでビューを使うには `return view("<dir>.<file>")` で指定
     - `resources/views/posts/index.blade.php` -> `view("posts.index")` となる
   - `{{-- --}}` でマルチラインコメント
   - `{{ }}` で変数の表示
+  - `{{!! !!}}` でエスケープ無しの出力
+    - [`e()`](https://laravel.com/docs/5.7/helpers#method-e): エスケープ
+      - `e('<html>foo</html>')` -> `&lt;html&gt;foo&lt;/html&gt;`
+    - [`nl2br()`](https://www.php.net/manual/ja/function.nl2br.php): 改行コードの前に `<br>` タグを追加
+    - 上記をまとめて `{{!! nl2br(e($data)) !!}}` とすることで、改行つきで内容をそのまま出力となる
   - ループ処理
     - `@foreach` ~ `@endforeach`
     - `@forelse` ~ `@empty` ~ `@endforelse`
