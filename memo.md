@@ -19,3 +19,7 @@
   - Assets: `public`
   - View: `resources/views`
   - Routing: `routes`
+- コンフィグ設定
+  - `config/` -> `.env` と参照することで、環境が変わっても `.env` だけ差し替えれば良い
+    - `env(<KEY>, <DEFAULT VALUE>)` で `.env` から値の読み出し。未設定の場合は `<DEFAULT VALUE>` が使われる
+  - `config/app.php`: アプリ全般に関する設定
