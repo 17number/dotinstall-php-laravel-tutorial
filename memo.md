@@ -62,10 +62,19 @@
   - `php artisan make:controller XxxxController` でコントローラの作成
     - `app/Http/Controllers/XxxxController.php`
   - `routes/web.php` に定義したアクションを作成する
+  - ビューにデータを渡す
+    - `view("posts.index", ["key" => "value"])` or
+    - `view("posts.index")->with("key", "value")`
 - ビュー
   - `resources/views/<resouce>/<action>.blade.php` に作成(通例?)
   - コントローラでビューを使うには `return view("<dir>.<file>")` で指定
     - `resources/views/posts/index.blade.php` -> `view("posts.index")` となる
+  - `{{-- --}}` でマルチラインコメント
+  - `{{ }}` で変数の表示
+  - ループ処理
+    - `@foreach` ~ `@endforeach`
+    - `@forelse` ~ `@empty` ~ `@endforelse`
+      - 中身が空だったときの処理を `@empty` 下に書ける
 - サーバの起動
   - `php artisan serve --host <ip addr> --port <port>` でサーバの起動
 - `dd()`: dump and die

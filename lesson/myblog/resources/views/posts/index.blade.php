@@ -10,9 +10,15 @@
     <div class="container">
         <h1>Blog Posts</h1>
         <ul>
-            <li><a href=""></a>title</li>
-            <li><a href=""></a>title</li>
-            <li><a href=""></a>title</li>
+            @foreach ($posts as $post)
+                <li><a href=""></a>{{ $post->title }}</li>
+            @endforeach
+
+            @forelse ($posts as $post)
+                <li><a href=""></a>{{ $post->title }}</li>
+            @empty
+                <li><a href=""></a>Empty</li>
+            @endforelse
         </ul>
     </div>
 </body>
