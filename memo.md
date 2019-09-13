@@ -23,3 +23,16 @@
   - `config/` -> `.env` と参照することで、環境が変わっても `.env` だけ差し替えれば良い
     - `env(<KEY>, <DEFAULT VALUE>)` で `.env` から値の読み出し。未設定の場合は `<DEFAULT VALUE>` が使われる
   - `config/app.php`: アプリ全般に関する設定
+- モデル作成
+  - `php artisan make:model <Model> --migration` でモデルとマイグレーションファイルの作成
+    - `php artisan make:model Post --migration`
+- マイグレーションファイル
+  - `up`: マイグレーション実行時の処理
+  - `down`: ロールバック実行時の処理
+  - `$table-><column type>(<column name>)` でカラムの作成
+    - `$table->bigIngrements('id')`: `BIGINT`, Auto Increment の `id`
+    - `$table->string('title')`: `VARCHAR` の `title`
+    - `$table->text('body')`: `TEXT` の `body`
+    - `$table->timestamps()`: `created_at`, `updated_at`
+- マイグレーション実行
+  - `php artisan migrate`
