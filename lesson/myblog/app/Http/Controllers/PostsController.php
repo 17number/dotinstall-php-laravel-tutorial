@@ -9,6 +9,6 @@ class PostsController extends Controller
     //
     public function index() {
         // return App\Posts::all();
-        return "hello";
+        return view("posts.index");
     }
 }

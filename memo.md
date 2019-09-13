@@ -62,5 +62,9 @@
   - `php artisan make:controller XxxxController` でコントローラの作成
     - `app/Http/Controllers/XxxxController.php`
   - `routes/web.php` に定義したアクションを作成する
+- ビュー
+  - `resources/views/<resouce>/<action>.blade.php` に作成(通例?)
+  - コントローラでビューを使うには `return view("<dir>.<file>")` で指定
+    - `resources/views/posts/index.blade.php` -> `view("posts.index")` となる
 - サーバの起動
   - `php artisan serve --host <ip addr> --port <port>` でサーバの起動
