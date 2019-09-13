@@ -36,3 +36,9 @@
     - `$table->timestamps()`: `created_at`, `updated_at`
 - マイグレーション実行
   - `php artisan migrate`
+- `php artisan tinker` でインタラクティブシェルの起動(モデルの操作ができる)
+  - `new App\<ModelName>()` でインスタンス生成
+    - デフォルトで namespace が `App` に設定されている
+  - `$post->title = "hoge"` や `$post->save();` で値の設定や保存
+  - `App\Post::all()` で全てのデータを取得
+    - `App\Post::all()->toArray()` でレコードの内容のみを取得
