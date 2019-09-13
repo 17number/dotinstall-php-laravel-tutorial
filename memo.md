@@ -68,3 +68,6 @@
     - `resources/views/posts/index.blade.php` -> `view("posts.index")` となる
 - サーバの起動
   - `php artisan serve --host <ip addr> --port <port>` でサーバの起動
+- `dd()`: dump and die
+  - データをダンプして終了、データが取れているかの確認に使う　
+- `Model::latest()`: `Model::orderBy("created_at", "desc")` と同じ
