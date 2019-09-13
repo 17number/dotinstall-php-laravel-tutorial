@@ -42,3 +42,6 @@
   - `$post->title = "hoge"` や `$post->save();` で値の設定や保存
   - `App\Post::all()` で全てのデータを取得
     - `App\Post::all()->toArray()` でレコードの内容のみを取得
+- `App\<Model>::create([<key> => <value>, ...])` で作成と保存が可能
+  - Mass Assignment の脆弱性対策がデフォルトで設定されている
+    - `protected $fillable = ["key1", "key2", ...];` を `app/<Model>.php` に追加する
