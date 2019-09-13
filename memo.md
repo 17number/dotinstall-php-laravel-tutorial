@@ -45,3 +45,13 @@
 - `App\<Model>::create([<key> => <value>, ...])` で作成と保存が可能
   - Mass Assignment の脆弱性対策がデフォルトで設定されている
     - `protected $fillable = ["key1", "key2", ...];` を `app/<Model>.php` に追加する
+- データの取得
+  - `App\<Model>::find(<id>)`: ID 指定
+  - `App\<Model>::where("id", ">", 1)`: 条件指定
+    - `->get()` でデータの取得
+  - `orderBy("created_at", "desc")`: 並び替え
+  - `take(<limit>)`: 件数の制限
+  - `update(["key" => "value", ...])`: レコードの更新
+    - 正常終了だと `true` が返る
+  - `delete()`: レコードの削除
+    - 正常終了だと `true` が返る
