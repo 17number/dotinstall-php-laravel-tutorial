@@ -1,0 +1,13 @@
+- [Composer](https://getcomposer.org) をインストール
+  - `brew install homebrew/core/composer`
+- Composer で Laravel をインストール
+  - 公式: [Installation \- Laravel \- The PHP Framework For Web Artisans](https://laravel.com/docs/6.0/installation)
+  - `composer create-project --prefer-dist laravel/laravel blog` でも OK
+    - (たぶん)ダウンロード(?)とプロジェクトの作成まで実行
+  - `composer global require laravel/installer` でグローバルインストール
+    - `$HOME/.composer/vendor/bin` にダウンロードされるので PATH を通す
+      - `echo export PATH="$HOME/.composer/vendor/bin:$PATH" >> ~/.bash_profile`
+      - `source ~/.bash_profile`
+    - プロジェクトの作成
+      - `laravel new <app name>`
+  - `php artisan --version` で Laravel のバージョン確認
