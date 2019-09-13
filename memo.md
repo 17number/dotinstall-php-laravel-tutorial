@@ -11,3 +11,11 @@
     - プロジェクトの作成
       - `laravel new <app name>`
   - `php artisan --version` で Laravel のバージョン確認
+- ディレクトリ構成
+  - Model: `app`
+  - Controller: `app/Http/Controllers`
+  - Config: `conig`
+  - DB: `database`
+  - Assets: `public`
+  - View: `resources/views`
+  - Routing: `routes`
