@@ -55,3 +55,12 @@
     - 正常終了だと `true` が返る
   - `delete()`: レコードの削除
     - 正常終了だと `true` が返る
+- ルーティング
+  - `routes/web.php` で設定
+  - `Route::get("/", "XxxxController@xxxx_method")` で URL と対応アクションを指定
+- コントローラ
+  - `php artisan make:controller XxxxController` でコントローラの作成
+    - `app/Http/Controllers/XxxxController.php`
+  - `routes/web.php` に定義したアクションを作成する
+- サーバの起動
+  - `php artisan serve --host <ip addr> --port <port>` でサーバの起動
