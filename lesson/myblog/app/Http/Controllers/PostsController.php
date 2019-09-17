@@ -41,4 +41,9 @@ class PostsController extends Controller
         return redirect("/");
         // return redirect("/posts/$post->id");  // 個別投稿ページにリダイレクトするならこっち
     }
+
+    public function destroy(Post $post) {
+        $post->delete();
+        return redirect("/");
+    }
 }
