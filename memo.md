@@ -110,6 +110,7 @@
     - フォームの各要素の `name` を使って `$request->title` のようにアクセス
   - フォームの HTTP method を変更したい場合は、フォーム内に `{{ method_field("patch") }}` のように `method_field` を使う
 - `return redirect("path/to/resource")` でリダイレクト
+  - 別コントローラへのリダイレクトは `return redirect()->action("OtherController@action"[, params])`
 - [バリデーション](https://readouble.com/laravel/5.8/ja/validation.html)
   - `$this->validate(<target>, [<rules>])` でバリデーション
     - `<rules>` は `"param" => "rule"` で記述
@@ -137,3 +138,4 @@
   - `app/ParentModel.php` と `app/ChildModel.php` にメソッドを定義する
     - `public function children { return $this->hasMany("App\ChildModel"); }`
     - `public function parent { return $this->belongsTo("App\ParentModel"); }`
+  - `$parent->children()->save($child)` とすることで関連付け含め保存
