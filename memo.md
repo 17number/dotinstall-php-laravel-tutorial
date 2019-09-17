@@ -91,7 +91,7 @@
       - 中身が空だったときの処理を `@empty` 下に書ける
   - リンクの生成
     - `url("/posts", $post->id)` -> `/posts/{{ $posts->id }}` となる
-    - `action("PostsController@show", $post-id)` でも同じ
+    - `action("PostsController@show", $post->id)` でも同じ
   - `resources/views/layouts/xxxx.blade.php` で共通レイアウトを管理(このレッスンでは)
     - `layouts` の `@yield("key")` と `views` の `@section("key", "value")` とが紐づく
       - `@section("key", "value")` は `@section("key") ... @endsection` のようにも書ける
