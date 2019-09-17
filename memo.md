@@ -88,6 +88,10 @@
   - リンクの生成
     - `url("/posts", $post->id)` -> `/posts/{{ $posts->id }}` となる
     - `action("PostsController@show", $post-id)` でも同じ
+  - `resources/views/layouts/xxxx.blade.php` で共通レイアウトを管理(このレッスンでは)
+    - `layouts` の `@yield("key")` と `views` の `@section("key", "value")` とが紐づく
+      - `@section("key", "value")` は `@section("key") ... @endsection` のようにも書ける
+    - 共通レイアウトを利用する側(`views`)で `@extend("layouts.xxxx")` と書いて利用するレイアウトファイルを指定
 - サーバの起動
   - `php artisan serve --host <ip addr> --port <port>` でサーバの起動
 - `dd()`: dump and die
