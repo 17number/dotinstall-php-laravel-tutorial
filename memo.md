@@ -104,3 +104,6 @@
     - デフォルトは `id` だが、モデルにメソッドを追加するとカスタマイズできる
       - [Laravelでwiki的なものをつくってみる\(後編\) \- Qiita](https://qiita.com/ohida/items/f5280ccbb10f9b43f92c#implicit-binding)
 - フォームには CSRF 対策のため `{{ csrf_field() }}` を追加する必要がある
+  - パラメータは `Request` 型でアクセスできる
+    - フォームの各要素の `name` を使って `$request->title` のようにアクセス
+- `return redirect("path/to/resource")` でリダイレクト
