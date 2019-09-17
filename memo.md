@@ -106,6 +106,7 @@
 - フォームには CSRF 対策のため `{{ csrf_field() }}` を追加する必要がある
   - パラメータは `Request` 型でアクセスできる
     - フォームの各要素の `name` を使って `$request->title` のようにアクセス
+  - フォームの HTTP method を変更したい場合は、フォーム内に `{{ method_field("patch") }}` のように `method_field` を使う
 - `return redirect("path/to/resource")` でリダイレクト
 - [バリデーション](https://readouble.com/laravel/5.8/ja/validation.html)
   - `$this->validate(<target>, [<rules>])` でバリデーション
@@ -121,3 +122,4 @@
     - `$errors->any()` でエラーがあるかどうか
   - ビューでエラーを表示する場合は `@if($errors->xxx) ... @endif`
   - バリデーションエラー時に、前の値を保持したい場合には `value="{{ old('field') }}` のように `old` を使う
+    - 「編集開始時には元の値を表示」とする場合には `old('field', $post->field)` のように第二引数を利用する

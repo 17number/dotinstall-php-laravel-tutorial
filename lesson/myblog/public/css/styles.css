@@ -38,3 +38,7 @@ textarea {
 .error {
     color: tomato;
 }
+
+.edit {
+    font-size: 12px;
+}
