@@ -143,3 +143,6 @@
     - `public function children { return $this->hasMany("App\ChildModel"); }`
     - `public function parent { return $this->belongsTo("App\ParentModel"); }`
   - `$parent->children()->save($child)` とすることで関連付け含め保存
+- sqlite3 で外部キー制約を有効にするには `app/Providers/AppServiceProvider.php` を編集
+  - `boot` メソッドを編集
+    - sqlite の場合は `\DB::statement(\DB::raw("PRAGMA foreign_keys=1"))` を実行
