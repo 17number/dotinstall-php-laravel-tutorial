@@ -107,3 +107,17 @@
   - パラメータは `Request` 型でアクセスできる
     - フォームの各要素の `name` を使って `$request->title` のようにアクセス
 - `return redirect("path/to/resource")` でリダイレクト
+- [バリデーション](https://readouble.com/laravel/5.8/ja/validation.html)
+  - `$this->validate(<target>, [<rules>])` でバリデーション
+    - `<rules>` は `"param" => "rule"` で記述
+      - `required`: 必須
+      - `min`: 最低文字数
+      - `max`: 最大文字数
+      - `unique:<model>`: ユニーク制約
+      - etc...
+  - バリデーションエラーは `$errors` でアクセス
+    - `$errors->has("field")` で指定フィールドに関するエラー有無
+    - `$errors->all()` で全てのエラー
+    - `$errors->any()` でエラーがあるかどうか
+  - ビューでエラーを表示する場合は `@if($errors->xxx) ... @endif`
+  - バリデーションエラー時に、前の値を保持したい場合には `value="{{ old('field') }}` のように `old` を使う
