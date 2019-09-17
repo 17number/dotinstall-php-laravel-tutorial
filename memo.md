@@ -34,6 +34,8 @@
     - `$table->string('title')`: `VARCHAR` の `title`
     - `$table->text('body')`: `TEXT` の `body`
     - `$table->timestamps()`: `created_at`, `updated_at`
+    - `$table->foreign('col')->references('id')->on('foreignTable')`: 外部キー制約
+      - `->onDelete('cascade')`: 親レコードの削除時は子レコードも削除
 - マイグレーション実行
   - `php artisan migrate`
 - `php artisan tinker` でインタラクティブシェルの起動(モデルの操作ができる)
