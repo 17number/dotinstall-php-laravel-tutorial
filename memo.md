@@ -123,3 +123,11 @@
   - ビューでエラーを表示する場合は `@if($errors->xxx) ... @endif`
   - バリデーションエラー時に、前の値を保持したい場合には `value="{{ old('field') }}` のように `old` を使う
     - 「編集開始時には元の値を表示」とする場合には `old('field', $post->field)` のように第二引数を利用する
+- `php artisan make:request XxxxRequest` で `FormRequest` を継承した `XxxxRequest` を作成
+  - 実体は `app/Http/Requests/XxxxRequest.php` に作成される
+    - 編集後コントローラの該当アクションで引数として渡せば OK
+  - バリデーションルールなどを共通化できる
+    - `rules` を編集
+  - バリデーションエラーのメッセージをカスタマイズする
+    - `public function messages()` に定義
+      - `return ["field.rule" => "custom message", ...]` でバリデーションごとのメッセージを定義可能
