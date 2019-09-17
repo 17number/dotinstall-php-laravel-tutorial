@@ -133,3 +133,7 @@
   - バリデーションエラーのメッセージをカスタマイズする
     - `public function messages()` に定義
       - `return ["field.rule" => "custom message", ...]` でバリデーションごとのメッセージを定義可能
+- モデル間の関連付け
+  - `app/ParentModel.php` と `app/ChildModel.php` にメソッドを定義する
+    - `public function children { return $this->hasMany("App\ChildModel"); }`
+    - `public function parent { return $this->belongsTo("App\ParentModel"); }`
