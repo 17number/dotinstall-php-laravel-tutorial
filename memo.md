@@ -60,6 +60,8 @@
   - `Route::get("/", "XxxxController@xxxx_method")` で URL と対応アクションを指定
     - パラメータを指定する場合は `Route::get("/{hoge}", ...)` とする
       - コントローラでは関数定義で仮引数を追加すれば OK
+    - ルーティングは上から順に処理される
+      - `->where("param", "[0-9]+")` とすることで、`param` を数値のみに限定できる
 - コントローラ
   - `php artisan make:controller XxxxController` でコントローラの作成
     - `app/Http/Controllers/XxxxController.php`
