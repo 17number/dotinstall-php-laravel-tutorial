@@ -109,8 +109,12 @@
   - パラメータは `Request` 型でアクセスできる
     - フォームの各要素の `name` を使って `$request->title` のようにアクセス
   - フォームの HTTP method を変更したい場合は、フォーム内に `{{ method_field("patch") }}` のように `method_field` を使う
-- `return redirect("path/to/resource")` でリダイレクト
+  - ネストしたフォームへのパラメータは配列で渡す
+    - `action("HogeController@action", [$parent, $child])`
+- リダイレクト
+  - `return redirect("path/to/resource")` で指定 URL へのリダイレクト
   - 別コントローラへのリダイレクトは `return redirect()->action("OtherController@action"[, params])`
+  - `return redirect()->back()` で前のページに戻る
 - [バリデーション](https://readouble.com/laravel/5.8/ja/validation.html)
   - `$this->validate(<target>, [<rules>])` でバリデーション
     - `<rules>` は `"param" => "rule"` で記述
